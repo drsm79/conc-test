@@ -1,0 +1,19 @@
+name: "Zzzzz"
+concurrency: one
+on: workflow_dispatch
+jobs:
+  parse_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Run job
+        run: |
+          python snooze.py
